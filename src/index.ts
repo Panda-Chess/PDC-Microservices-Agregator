@@ -1,13 +1,13 @@
-import fs from "fs";
 import { configType } from "./configType";
 import { databaseService } from "./database.service";
+import dotenv from "dotenv";
 
-if (!fs.existsSync("microservices.conf.json")) {
-    throw new Error("No configuration file found");
-}
+dotenv.config();
 
-const file = fs.readFileSync("microservices.conf.json", "utf8");
-const config: configType = JSON.parse(file);
+
+const config: configType = {
+    database: process.env.DATABASE_URL,
+};
 
 export const {
     getUserById, getGames, deleteGame, getGameByUser, getUnstartedGames, modifyGame, createGame 

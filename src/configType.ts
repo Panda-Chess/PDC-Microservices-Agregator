@@ -1,3 +1,3 @@
 export type configType = {
-    database: string;
+    database?: string;
 };

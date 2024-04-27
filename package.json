@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@panda-chess/pdc-core": "latest",
-    "axios": "^1.6.8"
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5"
   }
 }
