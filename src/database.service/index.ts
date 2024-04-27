@@ -1,10 +1,20 @@
-import { configType } from "../configType";
 import { callers } from "./callers";
+import dotenv from "dotenv";
 
-export const databaseService = (configFile: configType) => {
-    if (!configFile.database) {
-        throw new Error("Environment variable DATABASE_SERVICE_URL is not set.");
-    }
+dotenv.config();
 
-    return {...callers(configFile.database)};
-};
+const databaseServiceUrl = process.env.DATABASE_SERVICE_URL;
+
+if (!databaseServiceUrl) {
+    throw new Error("Environment variable DATABASE_SERVICE_URL is not set.");
+}
+
+export const {
+    createGame,
+    deleteGame,
+    getGameByUser,
+    getGames,
+    getUnstartedGames,
+    getUserById,
+    modifyGame
+} = callers(databaseServiceUrl);
