@@ -3,7 +3,7 @@ import { callers } from "./callers";
 
 export const databaseService = (configFile: configType) => {
     if (!configFile.database) {
-        throw new Error("No database URL configuration found");
+        throw new Error("Environment variable DATABASE_SERVICE_URL is not set.");
     }
 
     return {...callers(configFile.database)};

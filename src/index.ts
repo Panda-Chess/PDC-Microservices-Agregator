@@ -6,7 +6,7 @@ dotenv.config();
 
 
 const config: configType = {
-    database: process.env.DATABASE_URL,
+    database: process.env.DATABASE_SERVICE_URL,
 };
 
 export const {
