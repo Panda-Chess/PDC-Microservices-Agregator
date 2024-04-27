@@ -44,6 +44,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@panda-chess/pdc-core": "^0.3.4"
+    "@panda-chess/pdc-core": "latest",
+    "axios": "^1.6.8"
   }
 }
