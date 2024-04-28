@@ -14,4 +14,8 @@ const serviceConfig: ConfigType = {
     databaseServiceUrl: config.databaseServiceUrl || defaultConfig.databaseServiceUrl,
 };
 
+for (const key in serviceConfig) {
+    console.log(`Service config: ${key}: ${Object.getOwnPropertyDescriptor(serviceConfig, key)?.value}`);
+}
+
 export const databaseService = databaseServiceCreator(serviceConfig);
