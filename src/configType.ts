@@ -1,3 +1,3 @@
 export type ConfigType = {
-    databaseServiceUrl?: string;
+    databaseServiceUrl: string;
 };
