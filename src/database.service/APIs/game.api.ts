@@ -58,7 +58,7 @@ export const gameApiCreator = (apiUrl: string) => {
      * @param {Game} game The game to modify
      * @returns {Promise<Game>} A promise that resolves to the modified game
      */
-    const modifyGame = async (game: Game) => {
+    const modifyGame = async (game: Game): Promise<Game> => {
         const response = await axios.put(apiUrl + "/games/" + game._id, game);
         return response.data;
     };
@@ -69,7 +69,7 @@ export const gameApiCreator = (apiUrl: string) => {
      * @param {Game} game The game to create
      * @returns {Promise<Game>} A promise that resolves to the created game
      */
-    const createGame = async (game: Game) => {
+    const createGame = async (game: Game): Promise<Game> => {
         const response = await axios.post(apiUrl + "/games", game);
         return response.data;
     };
