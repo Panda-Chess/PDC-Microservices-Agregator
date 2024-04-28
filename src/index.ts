@@ -6,12 +6,20 @@ import { defaultConfig } from "./defaultConfig";
 
 dotenv.config();
 
-const configFile = fs.readFileSync("microservices.config.json");
+let configFile;
+let config: ConfigType | null = null;
 
-const config: ConfigType = JSON.parse(configFile.toString());
+try{
+    configFile = fs.readFileSync("microservices.config.json");
+    config = JSON.parse(configFile.toString());
+}
+catch (error){
+    console.error("No config file found. Using default configuration.");
+}
+
 
 const serviceConfig: ConfigType = {
-    databaseServiceUrl: config.databaseServiceUrl || defaultConfig.databaseServiceUrl,
+    databaseServiceUrl: config?.databaseServiceUrl || defaultConfig.databaseServiceUrl,
 };
 
 for (const key in serviceConfig) {
