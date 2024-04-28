@@ -14,7 +14,7 @@ try{
     config = JSON.parse(configFile.toString());
 }
 catch (error){
-    console.error("No config file found. Using default configuration.");
+    console.log("\x1b[31m", "\nNo config file found. Using default configuration.\n");
 }
 
 
@@ -23,7 +23,7 @@ const serviceConfig: ConfigType = {
 };
 
 for (const key in serviceConfig) {
-    console.log(`Service config: ${key}: ${Object.getOwnPropertyDescriptor(serviceConfig, key)?.value}`);
+    console.log("\x1b[34m", `Service config: ${key}: ${Object.getOwnPropertyDescriptor(serviceConfig, key)?.value}`);
 }
 
 export const databaseService = databaseServiceCreator(serviceConfig);
