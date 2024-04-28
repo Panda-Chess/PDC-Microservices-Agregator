@@ -36,7 +36,7 @@ export const gameApiCreator = (apiUrl: string) => {
      * @param {string} userId The user id
      * @returns {Promise<Game>} A promise that resolves to the game
      */
-    const getGameByUser = async (userId: string): Promise<Game> => {
+    const getGameByUser = async (userId: string): Promise<Game | null> => {
         const response = await axios.get(apiUrl + "/games/game-by-user/" + userId);
         return response.data;
     };
