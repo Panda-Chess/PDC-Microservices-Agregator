@@ -8,6 +8,15 @@ import axios from "axios";
  * @returns {Object} An object containing user API methods
  */
 export const userApiCreator = (apiUrl: string) => {
+    /**
+     * Get all users
+     * 
+     * @returns {Promise<User[]>} A promise that resolves to an array of users
+     */
+    const getUsers = async (): Promise<User[]> => {
+        const response = await axios.get(apiUrl + "/users");
+        return response.data;
+    };
 
     /**
      * Get a user by id
@@ -20,5 +29,5 @@ export const userApiCreator = (apiUrl: string) => {
         return response.data;
     };
 
-    return {getUserById};
+    return {getUsers, getUserById};
 };
