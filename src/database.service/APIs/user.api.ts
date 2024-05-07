@@ -29,5 +29,11 @@ export const userApiCreator = (apiUrl: string) => {
         return response.data;
     };
 
-    return {getUsers, getUserById};
+    const tryLogin = async (email: string, password: string): Promise<User> => {
+        const response = await axios.post(apiUrl + "/users/try-login", {email, password});
+        
+        return response.data;
+    };
+
+    return {tryLogin, getUsers, getUserById};
 };
