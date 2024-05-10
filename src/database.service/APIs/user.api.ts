@@ -29,11 +29,31 @@ export const userApiCreator = (apiUrl: string) => {
         return response.data;
     };
 
+    /**
+     * Try to login
+     * 
+     * @param {string} email The user email
+     * @param {string} password The user password
+     * @returns {Promise<User>} A promise that resolves to the user
+     */
     const tryLogin = async (email: string, password: string): Promise<User> => {
         const response = await axios.post(apiUrl + "/users/try-login", {email, password});
         
         return response.data;
     };
 
-    return {tryLogin, getUsers, getUserById};
+    /**
+     * Create a user
+     * 
+     * @param {User} user The user to create
+     * @returns {Promise<User>} A promise that resolves to the created user
+     */
+    const createUser = async (user: User): Promise<User> => {
+        const response = await axios.post(apiUrl + "/users", user);
+        return response.data;
+    };
+
+    return {
+        tryLogin, getUsers, getUserById, createUser
+    };
 };
