@@ -53,7 +53,17 @@ export const userApiCreator = (apiUrl: string) => {
         return response.data;
     };
 
+    /**
+     * Delete a user
+     * 
+     * @param {string} id The user id
+     * @returns {Promise<void>} A promise that resolves when the user is deleted
+     */
+    const deleteUser = async (id: string): Promise<void> => {
+        await axios.delete(apiUrl + `/users/${id}`);
+    };
+
     return {
-        tryLogin, getUsers, getUserById, createUser
+        tryLogin, getUsers, getUserById, createUser, deleteUser
     };
 };
