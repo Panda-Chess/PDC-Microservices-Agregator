@@ -10,6 +10,17 @@ import axios from "axios";
 export const gameApiCreator = (apiUrl: string) => {
 
     /**
+     * Get a game by id
+     * 
+     * @param {string} gameId The game id
+     * @returns {Promise<Game>} A promise that resolves to the game
+     */
+    const getGameById = async (gameId: string): Promise<Game> => {
+        const response = await axios.get(apiUrl + "/games/" + gameId);
+        return response.data;
+    };
+
+    /**
      * Get all games
      * 
      * @returns {Promise<Game[]>} A promise that resolves to an array of games
@@ -75,6 +86,7 @@ export const gameApiCreator = (apiUrl: string) => {
     };
 
     return {
+        getGameById,
         getGames,
         deleteGame,
         getGameByUser,
