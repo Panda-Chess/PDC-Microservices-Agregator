@@ -54,6 +54,17 @@ export const userApiCreator = (apiUrl: string) => {
     };
 
     /**
+     * Update a user
+     * 
+     * @param {User} user The user to update
+     * @returns {Promise<User>} A promise that resolves to the updated user
+     */
+    const updateUser = async (user: User): Promise<User> => {
+        const response = await axios.put(apiUrl + "/users", user);
+        return response.data;
+    };
+
+    /**
      * Delete a user
      * 
      * @param {string} id The user id
@@ -64,6 +75,6 @@ export const userApiCreator = (apiUrl: string) => {
     };
 
     return {
-        tryLogin, getUsers, getUserById, createUser, deleteUser
+        tryLogin, getUsers, getUserById, createUser, updateUser, deleteUser
     };
 };
