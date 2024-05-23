@@ -44,11 +44,12 @@ export const gameApiCreator = (apiUrl: string) => {
     /**
      * Get a game by user
      * 
-     * @param {string} userId The user id
+     * @param {string} user1Id The user 1 id
+     * @param {string} user2Id The user 2 id
      * @returns {Promise<Game>} A promise that resolves to the game
      */
-    const getGameByUser = async (userId: string): Promise<Game | null> => {
-        const response = await axios.get(apiUrl + "/games/game-by-user/" + userId);
+    const getGameByUsers = async (user1Id: string, user2Id: string): Promise<Game | null> => {
+        const response = await axios.get(apiUrl + "/games/game-by-user/", { params: { user1Id, user2Id } });
         return response.data;
     };
 
@@ -89,7 +90,7 @@ export const gameApiCreator = (apiUrl: string) => {
         getGameById,
         getGames,
         deleteGame,
-        getGameByUser,
+        getGameByUsers,
         getUnstartedGames,
         modifyGame,
         createGame,
