@@ -25,7 +25,7 @@ export const userApiCreator = (apiUrl: string) => {
      * @returns {Promise<User>} A promise that resolves to the user
      */
     const getUserById = async (id: string): Promise<User> => {
-        const response = await axios.get(apiUrl + `/users/${id}`);
+        const response = await axios.get(apiUrl + `/users/user/${id}`);
         return response.data;
     };
 
