@@ -37,8 +37,8 @@ export const userApiCreator = (apiUrl: string) => {
      * @returns {Promise<User>} A promise that resolves to the user
      */
     const tryLogin = async (email: string, password: string): Promise<User> => {
-        const response = await axios.post(apiUrl + "/users/try-login", {email, password});
-        
+        const response = await axios.post(apiUrl + "/users/try-login", { email, password });
+
         return response.data;
     };
 
@@ -74,7 +74,17 @@ export const userApiCreator = (apiUrl: string) => {
         await axios.delete(apiUrl + `/users/${id}`);
     };
 
+    /**
+     * Get online users
+     * 
+     * @returns {Promise<User[]>} A promise that resolves to an array of online users
+     */
+    const getOnlineUsers = async (): Promise<User[]> => {
+        const response = await axios.get(apiUrl + "/users/online");
+        return response.data;
+    };
+
     return {
-        tryLogin, getUsers, getUserById, createUser, updateUser, deleteUser
+        tryLogin, getUsers, getUserById, createUser, updateUser, deleteUser, getOnlineUsers
     };
 };
