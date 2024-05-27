@@ -9,7 +9,7 @@ export const wantsToPlayApiCreator = (apiUrl: string) => {
     };
 
     const playerWantsToPlay = async (wantsToPlay: WantsToPlay): Promise<WantsToPlay> => {
-        const response = await axios.post(apiUrl + "/wants-to-play/", { wantsToPlay });
+        const response = await axios.post(apiUrl + "/wants-to-play/", wantsToPlay);
         return response.data;
     };
 
