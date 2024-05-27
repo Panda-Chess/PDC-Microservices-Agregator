@@ -1,5 +1,6 @@
 import { gameApiCreator } from "./game.api";
 import { userApiCreator } from "./user.api";
+import { wantsToPlayApiCreator } from "./wantsToPlay.api";
 
 /**
  * API creator
@@ -11,5 +12,6 @@ export const apiCreator = (apiUrl: string) => {
     return {
         ...userApiCreator(apiUrl),
         ...gameApiCreator(apiUrl),
+        ...wantsToPlayApiCreator(apiUrl)
     };
 };
