@@ -28,7 +28,12 @@ for (const key in serviceConfig) {
     console.log("\x1b[34m", `Service config: ${key}: ${Object.getOwnPropertyDescriptor(serviceConfig, key)?.value}`);
 }
 
-export default {
+const services = {
     databaseService: databaseServiceCreator(serviceConfig),
     analyseService: analyseApiCreator(serviceConfig)
 };
+
+export const {
+    databaseService,
+    analyseService
+} = services;
