@@ -22,6 +22,7 @@ catch (error) {
 const serviceConfig: ConfigType = {
     databaseServiceUrl: config?.databaseServiceUrl || defaultConfig.databaseServiceUrl,
     analyserServiceUrl: config?.analyserServiceUrl || defaultConfig.analyserServiceUrl,
+    validateServiceUrl: config?.validateServiceUrl || defaultConfig.validateServiceUrl
 };
 
 for (const key in serviceConfig) {

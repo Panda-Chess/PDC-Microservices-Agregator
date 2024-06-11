@@ -30,6 +30,17 @@ export const userApiCreator = (apiUrl: string) => {
     };
 
     /**
+     * Get a user by email
+     * 
+     * @param {string} email The user email
+     * @returns {Promise<User>} A promise that resolves to the user
+     */
+    const getUserByEmail = async (email: string): Promise<User> => {
+        const response = await axios.get(apiUrl + `/users/user-by-email/${email}`);
+        return response.data;
+    };
+
+    /**
      * Try to login
      * 
      * @param {string} email The user email
@@ -85,6 +96,6 @@ export const userApiCreator = (apiUrl: string) => {
     };
 
     return {
-        tryLogin, getUsers, getUserById, createUser, updateUser, deleteUser, getOnlineUsers
+        tryLogin, getUsers, getUserById, getUserByEmail, createUser, updateUser, deleteUser, getOnlineUsers
     };
 };
