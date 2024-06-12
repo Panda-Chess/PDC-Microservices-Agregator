@@ -4,6 +4,7 @@ import { ConfigType } from "./configType";
 import { databaseServiceCreator } from "./database.service";
 import { defaultConfig } from "./defaultConfig";
 import { analyseApiCreator } from "./analyser.service";
+import { validatorServiceCreator } from "./validate.service";
 
 dotenv.config();
 
@@ -31,10 +32,12 @@ for (const key in serviceConfig) {
 
 const services = {
     databaseService: databaseServiceCreator(serviceConfig),
-    analyseService: analyseApiCreator(serviceConfig)
+    analyseService: analyseApiCreator(serviceConfig),
+    validatorService: validatorServiceCreator(serviceConfig)
 };
 
 export const {
     databaseService,
-    analyseService
+    analyseService,
+    validatorService
 } = services;
